@@ -9,18 +9,20 @@ public class MainAppliJframe {
 
         JFrame fenetre = new JFrame("Super Fenetre");
         fenetre.setSize(800, 800);
+	fenetre.setResizable(true);
         JPanel panelUp = new JPanel(); 
 	JPanel panelDown = new JPanel(); 
 	JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, panelUp, panelDown);
-        //splitPane.setDividerLocation(150); 
-        splitPane.setResizeWeight(0.33);
+        splitPane.setResizeWeight(0.40);
+        panelUp.setPreferredSize(new Dimension(800, 320));
+        panelDown.setPreferredSize(new Dimension(800, 480));
         fenetre.add(splitPane); 
 
 
-        JButton bouton1 = new JButton("Bouton 1");
+        JButton bouton1 = new JButton("Rouge");
         bouton1.addActionListener(e -> panelUp.setBackground(Color.RED));
   
-        JButton bouton3 = new JButton("Bouton 3");
+        JButton bouton3 = new JButton("Bleu");
         bouton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 panelUp.setBackground(Color.BLUE);  
@@ -41,6 +43,8 @@ public class MainAppliJframe {
         slider1.setPaintTicks(true);      
         slider1.setPaintLabels(true);
 	JLabel slider1Label = new JLabel();
+        Font font1 = new Font("Serif", Font.BOLD, 20);
+        slider1Label.setFont(font1);
 	slider1Label.setText("Paramètre du rouge"); 
 
 
